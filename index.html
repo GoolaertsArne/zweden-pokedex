@@ -84,7 +84,9 @@ font-family:Roboto;
 }
 
 .page{
-width:148mm;
+max-width:148mm;
+width:100%;
+box-sizing:border-box;
 min-height:210mm;
 margin:20px auto;
 background:#f5f5f5;
@@ -95,6 +97,11 @@ box-shadow:10px 10px 0 var(--pokedex-dark);
 position: relative;
 }
 
+@media (max-width: 500px) {
+.page { margin: 8px auto; padding: 14px; border-width: 6px; box-shadow: 4px 4px 0 var(--pokedex-dark); }
+.img-container { width: 95%; }
+.info-box { padding: 10px; }
+}
 .header{
 background:var(--pokedex-red);
 color:white;
@@ -405,7 +412,7 @@ function generatePages() {
         page.innerHTML=`
             <div class="header">${a[0]}</div>
             <div class="img-container" id="imgbox_${i}"><span id="placeholder_${i}" style="font-family:'Press Start 2P';color:#555;">???</span></div>
-            <div class="info-box" id="info_rarity_${i}" style="display:none">
+            <div class="info-box" id="info_rarity_${i}">
                 <span class="rarity-dot" style="background:${rarityConfig[rarity]}"></span> <strong>${rarity}</strong><br>
                 🇸🇪 ${a[1]} <br><br>
                 ${badges}
@@ -567,12 +574,9 @@ function loadState() {
 function updatePageVisibility(i) {
     const seen = document.getElementById('seen_' + i)?.checked;
     const caught = document.getElementById('caught_' + i)?.checked;
-    const rarityBox = document.getElementById('info_rarity_' + i);
     const placeholder = document.getElementById('placeholder_' + i);
     const imgEl = document.querySelector('#imgbox_' + i + ' img');
 
-    // Info boxes: only show when caught
-    if (rarityBox) rarityBox.style.display = caught ? '' : 'none';
 
     // Image: reveal with animation when seen or caught
     if (seen || caught) {
