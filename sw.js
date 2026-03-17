@@ -1,4 +1,4 @@
-const CACHE = 'pokedex-v3';
+const CACHE = 'pokedex-v4';
 
 self.addEventListener('install', e => {
     e.waitUntil(
