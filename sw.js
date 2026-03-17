@@ -1,4 +1,4 @@
-const CACHE = 'pokedex-v2';
+const CACHE = 'pokedex-v3';
 
 self.addEventListener('install', e => {
     e.waitUntil(
@@ -17,6 +17,14 @@ self.addEventListener('activate', e => {
 });
 
 self.addEventListener('fetch', e => {
+    // Always fetch HTML fresh from network, fallback to cache if offline
+    if (e.request.mode === 'navigate') {
+        e.respondWith(
+            fetch(e.request).catch(() => caches.match('./'))
+        );
+        return;
+    }
+    // Cache first for other assets
     e.respondWith(
         caches.match(e.request).then(r => r || fetch(e.request).catch(() => caches.match('./')))
     );
