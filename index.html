@@ -620,7 +620,7 @@ async function adminExport() {
         let source = await response.text();
 
         const newImgLine = 'const embeddedImages = ' + JSON.stringify(imgData) + '; // EXPORT_MARKER - do not modify this line';
-        source = source.replace(/const embeddedImages\s*=\s*\{[^;]*\};\s*\/\/ EXPORT_MARKER[^\n]*/, newImgLine);
+        source = source.replace(/const embeddedImages = .*\/\/ EXPORT_MARKER[^\n]*/, newImgLine);
 
         const blob = new Blob([source], { type: 'text/html' });
         const url = URL.createObjectURL(blob);

@@ -9,7 +9,8 @@
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(sed -i '' 's|<div class=\"\"info-box\"\" id=\"\"info_rarity_\\\\${i}\"\" style=\"\"display:none\"\">|<div class=\"\"info-box\"\" id=\"\"info_rarity_${i}\"\">|' /Users/arnegoolaerts/Desktop/Louis/index.html)",
-      "Bash(__NEW_LINE_72b74b83c52a04cf__ sed:*)"
+      "Bash(__NEW_LINE_72b74b83c52a04cf__ sed:*)",
+      "Bash(python3 -c \":*)"
     ]
   }
 }
