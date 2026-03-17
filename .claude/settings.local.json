@@ -5,7 +5,11 @@
       "Read(//private/tmp/pokedex_fonts/**)",
       "Bash(md5 roboto_400_latin.woff2 roboto_700_latin.woff2 roboto_400_latin_ext.woff2 roboto_700_latin_ext.woff2)",
       "Read(//Users/arnegoolaerts/**)",
-      "Read(//Users/arnegoolaerts/Desktop/**)"
+      "Read(//Users/arnegoolaerts/Desktop/**)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(sed -i '' 's|<div class=\"\"info-box\"\" id=\"\"info_rarity_\\\\${i}\"\" style=\"\"display:none\"\">|<div class=\"\"info-box\"\" id=\"\"info_rarity_${i}\"\">|' /Users/arnegoolaerts/Desktop/Louis/index.html)",
+      "Bash(__NEW_LINE_72b74b83c52a04cf__ sed:*)"
     ]
   }
 }

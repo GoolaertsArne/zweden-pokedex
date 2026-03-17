@@ -611,7 +611,8 @@ async function adminExport() {
     status.textContent = 'Bezig met exporteren...';
     try {
         const images = await dbLoadAllImages();
-        const imgData = {};
+        // Start with already-baked images, then overwrite with DB images (DB takes precedence)
+        const imgData = Object.assign({}, embeddedImages);
         images.forEach(img => { imgData[img.entryIndex] = img.dataUrl; });
 
         const response = await fetch(location.href);
